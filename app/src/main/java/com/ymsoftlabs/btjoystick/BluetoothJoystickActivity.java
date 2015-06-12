@@ -195,7 +195,7 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
         } else if ( item == mItemAbout ) {
             AlertDialog about = new AlertDialog.Builder(this).create();
             about.setCancelable(false);
-            about.setMessage("Bluetooth Dual-Joystick Controller v.2\n'yus - www.philrobotics.com/forum");
+            about.setMessage("Bluetooth Dual-Joystick Controller v.2.1\n'yus - www.philrobotics.com/forum");
             about.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
