@@ -369,6 +369,9 @@ public class JoystickView extends View {
                 if ( pointerId == INVALID_POINTER_ID ) {
                     final int pointerIndex = (action & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
                     final int pointerId = ev.getPointerId(pointerIndex);
+
+                    if (pointerId > 1) return false;
+
                     int x = (int) ev.getX(pointerId);
                     if ( x >= offsetX && x < offsetX + dimX ) {
 //                        Log.d(TAG, "ACTION_POINTER_DOWN: " + pointerId);
