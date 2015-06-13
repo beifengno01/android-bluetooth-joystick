@@ -66,11 +66,6 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
     private TextView mTxtDataL;
     private TextView mTxtDataR;
 
-    // Menu
-    private MenuItem mItemConnect;
-    private MenuItem mItemOptions;
-    private MenuItem mItemAbout;
-
     // polar coordinates
     private double mRadiusL = 0, mRadiusR = 0;
     private double mAngleL = 0, mAngleR = 0;
@@ -178,21 +173,23 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        mItemConnect = menu.add("Connect");
-        mItemOptions = menu.add("Options");
-        mItemAbout = menu.add("About");
-        return (super.onCreateOptionsMenu(menu));
-
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_bluetooth_joystick, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if ( item == mItemConnect ) {
+        // Handle action bar item clicks here.
+        int id = item.getItemId();
+        if (id == R.id.action_connect) {
             Intent serverIntent = new Intent(this, DeviceListActivity.class);
             startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-        } else if ( item == mItemOptions ) {
+            return true;
+        } else if (id == R.id.action_options) {
             startActivity( new Intent(this, OptionsActivity.class) );
-        } else if ( item == mItemAbout ) {
+            return true;
+        } else if (id == R.id.action_about) {
             AlertDialog about = new AlertDialog.Builder(this).create();
             about.setCancelable(false);
             about.setMessage("Bluetooth Dual-Joystick Controller v.2.1\n'yus - www.philrobotics.com/forum");
@@ -202,6 +199,7 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
                 }
             });
             about.show();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -17,6 +17,11 @@
     <string name="title_other_devices">Other Available Devices</string>
     <string name="button_scan">Scan for devices</string>
 
+    <!--  Menu Options -->
+    <string name="optConnect">Connect</string>
+    <string name="optOptions">Options</string>
+    <string name="optAbout">About</string>
+
     <!--  User Buttons -->
     <string name="btnA_text">A</string>
     <string name="btnB_text">B</string>
