@@ -4,14 +4,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +23,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.ymsoftlabs.widgets.DualJoystickView;
 import com.ymsoftlabs.widgets.JoystickMovedListener;
 
@@ -169,6 +173,16 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
                 UpdateMethod();
             }
         }, 2000, mUpdatePeriod);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        //AdView mAdView = (AdView) findViewById(R.id.adView);
+        //final TelephonyManager tm = (TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
+        //String testDeviceId = tm.getDeviceId();
+        //AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(testDeviceId).build();
+        //mAdView.loadAd(adRequest);
     }
 
     @Override
@@ -192,7 +206,7 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
         } else if (id == R.id.action_about) {
             AlertDialog about = new AlertDialog.Builder(this).create();
             about.setCancelable(false);
-            about.setMessage("Bluetooth Dual-Joystick Controller v.2.1\n'yus - www.philrobotics.com/forum");
+            about.setMessage("Bluetooth Dual-Joystick Controller v.2.1\n'yus - http://projectproto.blogspot.com");
             about.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();

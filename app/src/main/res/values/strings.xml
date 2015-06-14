@@ -33,4 +33,7 @@
     <string name="dataR_text">( 0, 0 )</string>
     <string name="status_text">C</string>
 
+    <string name="banner_ad_unit_id_yus">ca-app-pub-1002476730485776/5013240549</string>
+    <string name="banner_ad_unit_id_test">ca-app-pub-3940256099942544/6300978111</string>
+
 </resources>
