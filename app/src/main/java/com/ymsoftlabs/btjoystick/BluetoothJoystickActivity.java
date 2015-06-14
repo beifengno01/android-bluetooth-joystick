@@ -177,12 +177,6 @@ public class BluetoothJoystickActivity extends Activity implements SharedPrefere
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-        //AdView mAdView = (AdView) findViewById(R.id.adView);
-        //final TelephonyManager tm = (TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
-        //String testDeviceId = tm.getDeviceId();
-        //AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).addTestDevice(testDeviceId).build();
-        //mAdView.loadAd(adRequest);
     }
 
     @Override
